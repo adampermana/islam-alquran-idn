@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart' show debugPrint;
 
-import '../../../injector.dart';
 
 // class RequestInterceptor extends Interceptor {
 //   final IAuthLocalDatasource _authLocalDatasource = sl();
@@ -68,7 +67,7 @@ class LoggingInterceptor extends Interceptor {
   }
 
   @override
-  void onError(DioError err, ErrorInterceptorHandler handler) {
+  void onError(DioException err, ErrorInterceptorHandler handler) {
     debugPrint(
         '| [DIO] Error ${err.requestOptions.uri}: ${err.error}: ${err.response.toString()}');
     debugPrint(
